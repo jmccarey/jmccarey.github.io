@@ -22,8 +22,26 @@
   <!-- Custom styles for this template -->
   <link href="../css/main.css" rel="stylesheet">
 
-  <!-- Custom JS -->
-  <script src="../js/main.js"></script>
+  <!-- Custom JS for dynamic styling-->
+  <link rel="modulepreload" href="../js/modules/page.mjs">
+  <script type="module">
+    // Import the Page class
+    import {Page} from '../js/modules/page.mjs';
+    // Create a page object
+    window.page = new Page();
+
+    window.toggleTheme = function(){
+      window.page.toggleTheme();
+    }
+
+    window.onload = function(){
+      window.page.onLoad();
+    }
+
+    window.onresize = function(){
+      window.page.onResize();
+    }
+  </script>
 
 </head>
 

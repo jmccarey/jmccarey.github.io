@@ -26,10 +26,29 @@
     <link href="../css/main.css" rel="stylesheet">
 
     <!-- Custom JS for dynamic styling-->
-    <script src="../js/theme.js"></script>
+    <link rel="modulepreload" href="../js/modules/form.mjs">
+    <script type="module">
+      // Import the Page class
+      import {FormPage} from '../js/modules/form.mjs';
+      // Create a page object
+      window.page = new FormPage();
 
-    <!-- Dynamic styling + Form and tooltip utilities -->
-    <script src="../js/contact.js"></script>
+      window.postForm = function (event){
+        window.page.postForm(event);
+      }
+
+      window.toggleTheme = function(){
+        window.page.toggleTheme();
+      }
+
+      window.onload = function(){
+        window.page.onLoad();
+      }
+
+      window.onresize = function(){
+        window.page.onResize();
+      }
+    </script>
 
     
 
@@ -50,7 +69,7 @@
       <ul class="navbar-nav mx-auto">
 
         <li class="nav-brand">
-          <a class="nav-link" role="button" aria-pressed="true" onClick="toggleTheme()" id="themeSwitch">
+          <a class="nav-link" role="button" aria-pressed="true" onClick="window.toggleTheme()" id="themeSwitch">
             Dark Mode
           </a>
         </li>
@@ -77,14 +96,14 @@
 
     <!-- Page Content -->
     <div class="container col-lg-6 textbody mt-5 pt-5 mb-5">
-        <div class="row my-auto" onload="onFormLoad()">
+        <div class="row my-auto">
             <div class="container col-lg-6">
                 <h1>Get in touch</h1>
                 <p class="lead">I'm always looking for new opportunities and challenges. If you have a project you'd like to discuss, or just want to say hi, feel free to drop me a line.</p>
             </div>
 
             <!-- A basic contact form -->
-            <form onsubmit="postForm(event)" method="post" enctype="multipart/form-data" class="col-lg-6">
+            <form onsubmit="window.postForm(event)" method="post" enctype="multipart/form-data" class="col-lg-6">
                 <div class="form-group">
                     <!-- Get user name -->
                     <label for="name">Name *</label>

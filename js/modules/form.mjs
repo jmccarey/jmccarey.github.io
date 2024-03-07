@@ -69,13 +69,13 @@ class FormPage extends Page{
     async postForm(event){
         event.preventDefault();
 
-        if(!allowSubmission()){
+        if(!this.allowSubmission()){
             return;
         }
 
-        let requestBody = buildRequestBody();
+        let requestBody = this.buildRequestBody();
         
-        let response = await fetch(webhook, {
+        let response = await fetch(c.webhook, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -87,7 +87,7 @@ class FormPage extends Page{
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         else{
-            disableSubmission();
+            this.disableSubmission();
             sessionStorage.setItem('lastSubmission', new Date().getTime());
         }
 
@@ -99,8 +99,10 @@ class FormPage extends Page{
         // tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
         // tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     
-        if (!allowSubmission()){
-            disableSubmission();
+        let canSubmit = this.allowSubmission();
+
+        if (!canSubmit){
+            this.disableSubmission();
         }
     }
 
