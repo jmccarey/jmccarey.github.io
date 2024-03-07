@@ -8,6 +8,9 @@
     <meta name="description" content="The portfolio of Joseph McCarey">
     <meta name="author" content="Joseph McCarey">
 
+    <!-- Add a favicon -->
+    <link rel="icon" href="media/favicon.gif" type="image/x-icon">
+
     <title>About-- Joseph McCarey</title>
 
     <!-- Bootstrap core CSS -->
@@ -19,8 +22,31 @@
     <!-- Custom styles for this template -->
     <link href="css/main.css" rel="stylesheet">
 
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <link rel="modulepreload" href="./js/main.mjs">
+    <link rel="modulepreload" href="./js/modules/page.mjs">
+    <link rel="modulepreload" href="./js/modules/form.mjs">
+
+    <!-- Custom JS for dynamic styling-->
+    <script type="module" src="./js/main.mjs"></script>
+
+    <script type="module">
+      // Import the Page class
+      import {Page} from './js/modules/page.mjs';
+      // Create a page object
+      window.page = new Page();
+
+      window.toggleTheme = function(){
+        window.page.toggleTheme();
+      }
+
+      window.onload = function(){
+        window.page.onLoad();
+      }
+
+      window.onresize = function(){
+        window.page.onResize();
+      }
+    </script>
 
   </head>
 
@@ -39,7 +65,7 @@
         <ul class="navbar-nav mx-auto">
 
           <li class="nav-brand">
-            <a class="nav-link" role="button" aria-pressed="true" onClick="toggleTheme()" id="themeSwitch">
+            <a class="nav-link" role="button" aria-pressed="true" onClick="window.toggleTheme()" id="themeSwitch">
               Dark Mode
             </a>
           </li>

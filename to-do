@@ -8,6 +8,11 @@ X Spruce up format
     X Neat css gradient social media buttons
 X Use less projects per page and shorter descriptions
 X Test responsiveness on all pages
+X Reformat javascript to OOP/module based
+
+Next:
+Convert other pages to new script system
+ - (Hopefully in the process) fix form lockouts
 
 Soon:
 Add pagination for projects
