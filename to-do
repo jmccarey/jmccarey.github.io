@@ -9,15 +9,17 @@ X Spruce up format
 X Use less projects per page and shorter descriptions
 X Test responsiveness on all pages
 X Reformat javascript to OOP/module based
+X Convert all pages to new script system
+X Fix form lockout system
 
 Next:
-Convert other pages to new script system
- - (Hopefully in the process) fix form lockouts
+Add pagination for projects
+- Templating with flask or manual pages?
+Fill out home and contact pages
+
 
 Soon:
-Add pagination for projects
 Add old projects
-Fill out home and contact pages
 Special feature
 404 page
 Get feedback
@@ -25,5 +27,3 @@ Get feedback
 Less Soon:
 Add more projects
 Update project text
-
-"Switching to OOP/module schema for easier page specific event handling"
