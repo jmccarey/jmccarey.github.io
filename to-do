@@ -20,13 +20,14 @@ X Reformat javascript to OOP/module based
 X Convert all pages to new script system
 X Fix form lockout system
 X Add functional cookies for preferences
+X Added flask to use templating for projects
+X Converted form handling to flask for improved security
 
 
 
 Next:
 
 Add pagination for projects
-- Templating with flask or manual pages?
 Fill out home and contact pages
 
 
@@ -43,3 +44,4 @@ Get feedback
 Less Soon:
 Add more projects
 Update project text
+
