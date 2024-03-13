@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="The portfolio of Joseph McCarey">
+  <meta name="author" content="Joseph McCarey">
+
+  <!-- Prevent the user from applying automatic darkmode features.
+    Auto dark mode causes unintended styling. 
+    If the user has autodark enabled, we detect it and
+    automatically enable custom darkmode. -->
+  <meta name="color-scheme" content="only light">
+
+  <!-- Add a favicon -->
+  <link rel="icon" href="../static/media/favicon.gif" type="image/x-icon">
+
+  <title>Error-- Joseph McCarey</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- bootstrap js -->
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link href="../static/vendor/fontawesome/css/all.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/main.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark mx-auto" id="navbar">
+    <div class="container col-6 justify-content-center mx-auto">
+
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav mx-auto">
+
+          <li class="nav-brand mx-auto">
+            <a class="nav-link text-center" role="button" aria-pressed="true" onClick="toggleTheme()" id="themeSwitch">
+              Dark Mode
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center" href="#">Resume</a>
+          </li>
+
+          <li class="nav-brand">
+            <a class="nav-link text-center" href="{{url_for('index')}}"><i class="fas fa-home nav-text"></i></a>
+          </li>
+
+
+          <li class="nav-item">
+            <a class="nav-link text-center" href="{{url_for('projects', page=1)}}">Projects</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-center" href="{{url_for('contact')}}">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- Page Content -->
+  <div class="container col-lg-6 textbody my-5 pt-5">
+
+	<!-- Error Message -->
+
+	<div class="row">
+	  <div class="container col-7">
+		<h1 class="mt-5">Error {{code}}:</h1>
+		<h2 class="lead mb-5">{{message}}</h2>
+		<p>Sorry, there was an issue with loading that content. Please try again or contact me at error@mccarey.net if the error persists.</p>
+	  </div>
+	</div>
+
+
+
+
+  </div>
+
+  <br>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-2 bg-dark fixed-bottom d-none d-lg-block">
+    <div class="container">
+      <p class="m-0 text-center text-white">Glued together by Joseph
+        <a href="https://github.com/jmccarey">
+          <i class="fab fa-github fa-1x" style="color:white"></i>
+        </a>
+      </p>
+    </div>
+  </footer>
+
+
+  <!-- Custom JS for dynamic styling-->
+  <script type="module">
+    // Import the Page class
+    import { Page } from '../static/js/page.js';
+    // Create a page object
+    window.page = new Page();
+
+    window.toggleTheme = function () {
+      window.page.toggleTheme();
+    }
+
+    window.onload = function () {
+      window.page.onLoad();
+    }
+
+    window.onresize = function () {
+      window.page.onResize();
+    }
+
+    window.onbeforeunload = function () {
+      window.page.onBeforeUnload();
+    }
+  </script>
+
+</body>
+
+</html>

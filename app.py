@@ -4,19 +4,37 @@ from flask import Flask, request, render_template, url_for, redirect, session
 from requests import post
 from datetime import datetime
 from time import time
-from json import dumps
+from json import dumps, loads
 
 app = Flask(__name__)
+
+# Open the file and set the secret key
 with open('secret',"r") as file:
 	app.config['SECRET_KEY'] = file.read()
 
+# Open the file and read the webhook
+with open ('webhook','r') as file:
+	webhook = file.read()
+
 @app.route('/')
 def index():
+	"""Render the home page."""
 	return render_template('index.html')
 
 
 @app.route('/contact', methods=['GET', 'POST'])
 def contact(confirmation="", isDisabled="", btnText="Send Message"):
+	"""Render the contact page.
+
+	Args:
+		confirmation (str): The confirmation message.
+		isDisabled (str): The disabled attribute for the button.
+		btnText (str): The text for the button.
+
+	Returns:
+		str: The rendered template.
+	"""
+
 	if request.method == 'POST':
 		# Get the form data
 		form_data = request.form
@@ -38,15 +56,67 @@ def contact(confirmation="", isDisabled="", btnText="Send Message"):
 			return render_template('contact/index.html', confirmation="Please wait 60 seconds between submissions.", isDisabled="disabled", btnText="Message Sent")
 
 	return render_template('contact/index.html', confirmation=confirmation, isDisabled=isDisabled, btnText=btnText)
+
+@app.route('/projects/<page>', methods=['GET', 'POST'])
+def projects(page=1, projects=[]):
+	"""Render the projects page.
 	
-@app.route('/projects')
-def projects():
-	# Render the projects page
-	return render_template('projects/index.html')
+	Args:
+		page (int): The page number.
+		projects (list): A list of projects.
+		
+	Returns:
+		str: The rendered template.
+	"""
+
+	if request.method == 'POST':
+		# Get the page entered by the user
+		page = request.form['goPage']
+
+	try:
+		page = int(page)
+	except ValueError:
+		return redirect(url_for("error", code=404,message="Page not found."))
+
+	# If the user goes below the first page, redirect to the first page
+	if page <= 0:
+		return redirect(url_for("projects", page=1))
+	
+	# Load a JSON file with project data from static
+	with open("./static/projects.json", 'r') as file:
+		data = file.read()
+		projects = loads(data)
+
+	# If the user goes over the last page, redirect to the last page
+	if page > len(projects):
+		return redirect(url_for("projects", page=len(projects)))
+	
+	# Projects is a list of list of dicts
+	# Get the list for the current page
+
+	pageProjects = projects[page - 1]
+
+	while len(pageProjects) < 4:
+		pageProjects.append({"visibility": "hidden"})
+
+	# Render the template with the list of projects
+	
+	return render_template('projects/index.html', page=page, projects=pageProjects)
+
+
+@app.route('/error')
+def error(code=404, message="Page not found"):
+	return render_template('error.html', code=code, message=message)
 
 
 def buildRequestBody(form_data):
-	"""Build the request body for the discord webhook"""
+	"""Build the request body for the webhook.
+
+	Args:
+		form_data (dict): A dictionary containing the form data.
+	Returns: 
+		str: The request body for the webhook.
+	"""
 	# Extract form values
 	name = form_data['name']
 	email = form_data['email']
@@ -82,10 +152,14 @@ def buildRequestBody(form_data):
 
 
 def triggerWebhook(body):
-	"""Trigger the discord webhook stored in secret"""
-	# Open the file and read the webhook
-	with open ('webhook','r') as file:
-		webhook = file.read()
+	"""Trigger the discord webhook stored in secret
+	
+	Args: 
+		body (str): The request body for the webhook.
+
+	Returns:
+		requests.models.Response: The response from the webhook.
+	"""
 
 	# Send a POST request to the external webhook
 	response = post(url=webhook,
@@ -99,13 +173,15 @@ def triggerWebhook(body):
 
 
 
-Handler = SimpleHTTPRequestHandler
-Handler.extensions_map.update({
-	'.js': 'application/javascript',
-	'.css': 'text/css',
-})
 
+# If the file is run directly, start the server
+# With the custom request handler
 if __name__ == '__main__':
+	Handler = SimpleHTTPRequestHandler
+	Handler.extensions_map.update({
+		'.js': 'application/javascript',
+		'.css': 'text/css',
+	})
 	mimetypes.add_type('application/javascript', '.js')
 	mimetypes.add_type('text/css', '.css')
 	app.run(debug=True, options={"request_handler": Handler })

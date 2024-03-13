@@ -23,6 +23,9 @@
   <!-- Bootstrap core CSS -->
   <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+  <!-- bootstrap js -->
+  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   <!-- Font Awesome -->
   <link href="../../static/vendor/fontawesome/css/all.min.css" rel="stylesheet">
 
@@ -38,8 +41,8 @@
     <div class="container col-6 justify-content-center mx-auto">
 
 
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -47,56 +50,73 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
 
-          <li class="nav-brand">
-            <a class="nav-link" role="button" aria-pressed="true" onClick="toggleTheme()" id="themeSwitch">
+          <li class="nav-brand mx-auto">
+            <a class="nav-link text-center" role="button" onClick="toggleTheme()" id="themeSwitch">
               Dark Mode
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Resume</a>
+            <a class="nav-link text-center" href="#">Resume</a>
           </li>
 
           <li class="nav-brand">
-            <a class="nav-link" href="{{url_for('index')}}"><i class="fas fa-home nav-text"></i></a>
+            <a class="nav-link text-center" href="{{url_for('index')}}"><i class="fas fa-home nav-text"></i></a>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">Projects</a>
+            <a class="nav-link active text-center" href="#" aria-current="page">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('contact')}}">Contact</a>
+            <a class="nav-link text-center" href="{{url_for('contact')}}">Contact</a>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-
   <!-- Page Content -->
   <!-- A 2x2 grid of bootstrap cards -->
-  <div class="container col-lg-6 col-md-12 col-sm-10 my-3 py-5">
+  <div class="container col-lg-6 col-md-12 col-sm-10 my-4 py-5">
+
+    <!-- Pagination -->
+    <nav class="col-4 mx-auto justify-content-center">
+      <ul class="pagination justify-content-center">
+        <li class="page-item mx-auto"><a class="page-link" href="{{url_for('projects', page=page-1)}}"
+            aria-label="Previous"><i class="fa-solid fa-arrow-left"></i></a></li>
+        <li class="page-item mx-auto">
+          <form method="POST" enctype="multipart/form-data" class="d-flex justify-content-center">
+            <input type="number" class="form-control w-25" value="{{page}}" id="goPage" name="goPage"></input>
+            <button class="btn btn-primary" role="button" type="submit">Go</button>
+          </form>
+        </li>
+        <li class="page-item mx-auto"><a class="page-link" href="{{url_for('projects', page=page+1)}}"
+            aria-label="Next"><i class="fa-solid fa-arrow-right"></i></a></li>
+      </ul>
+    </nav>
+
+    <!-- Card deck -->
     <div class="card-deck">
       <!-- Row 1 -->
       <div class="row">
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2">
-          <img class="card-img-top" src="http://placehold.it/600x400" alt="">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
+          style="visibility: {{projects[0]['visibility']}} ;">
+          <img class="card-img-top" src="{{projects[0]['image']}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Project 1</h4>
-            <p class="card-text">This is a description of project 1. It is a long established fact that a reader will be
-              distracted by the readable content of a page when looking at its layout.</p>
+            <h4 class="card-title">{{projects[0]["name"]}}</h4>
+            <p class="card-text">{{projects[0]["description"]}}</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
           </div>
         </div>
 
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2">
-          <img class="card-img-top" src="http://placehold.it/600x400" alt="">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
+          style="visibility: {{projects[1]['visibility']}};">
+          <img class="card-img-top" src="{{projects[1]['image']}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Project 2</h4>
-            <p class="card-text">This is a description of project 2. It is a long established fact that a reader will be
-              distracted by the readable content of a page when looking at its layout.</p>
+            <h4 class="card-title">{{projects[1]["name"]}}</h4>
+            <p class="card-text">{{projects[1]["description"]}}</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
@@ -105,24 +125,24 @@
       </div>
       <!-- Row 2 -->
       <div class="row">
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2">
-          <img class="card-img-top" src="http://placehold.it/600x400" alt="">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
+          style="visibility: {{projects[2]['visibility']}} ;">
+          <img class="card-img-top" src="{{projects[2]['image']}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Project 3</h4>
-            <p class="card-text">This is a description of project 3. It is a long established fact that a reader will be
-              distracted by the readable content of a page when looking at its layout.</p>
+            <h4 class="card-title">{{projects[2]["name"]}}</h4>
+            <p class="card-text">{{projects[2]["description"]}}</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
           </div>
         </div>
 
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2">
-          <img class="card-img-top" src="http://placehold.it/600x400" alt="">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
+          style="visibility: {{projects[3]['visibility']}} ;">
+          <img class="card-img-top" src="{{projects[3]['image']}}" alt="">
           <div class="card-body">
-            <h4 class="card-title">Project 4</h4>
-            <p class="card-text">This is a description of project 4. It is a long established fact that a reader will be
-              distracted by the readable content of a page when looking at its layout.</p>
+            <h4 class="card-title">{{projects[3]["name"]}}</h4>
+            <p class="card-text">{{projects[3]["description"]}}</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Learn More</a>
@@ -149,29 +169,29 @@
   </footer>
 
 
-    <!-- Custom JS for dynamic styling-->
-    <script type="module">
-      // Import the Page class
-      import { Page } from '../../static/js/page.js';
-      // Create a page object
-      window.page = new Page();
-  
-      window.toggleTheme = function () {
-        window.page.toggleTheme();
-      }
-  
-      window.onload = function () {
-        window.page.onLoad();
-      }
-  
-      window.onresize = function () {
-        window.page.onResize();
-      }
-  
-      window.onbeforeunload = function () {
-        window.page.onBeforeUnload();
-      }
-    </script>
+  <!-- Custom JS for dynamic styling-->
+  <script type="module">
+    // Import the Page class
+    import { Page } from '../../static/js/page.js';
+    // Create a page object
+    window.page = new Page();
+
+    window.toggleTheme = function () {
+      window.page.toggleTheme();
+    }
+
+    window.onload = function () {
+      window.page.onLoad();
+    }
+
+    window.onresize = function () {
+      window.page.onResize();
+    }
+
+    window.onbeforeunload = function () {
+      window.page.onBeforeUnload();
+    }
+  </script>
 
 </body>
 

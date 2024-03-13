@@ -23,8 +23,8 @@
   <!-- Bootstrap core CSS -->
   <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- bootstrap js -->
-  <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <!-- bootstrap js -->
+  <script rel="preload" src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Font Awesome -->
   <link href="../../static/vendor/fontawesome/css/all.min.css" rel="stylesheet">
@@ -41,8 +41,8 @@
     <div class="container col-6 justify-content-center mx-auto">
 
 
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
         aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -50,25 +50,25 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav mx-auto">
 
-          <li class="nav-brand">
-            <a class="nav-link" role="button" aria-pressed="true" onClick="window.toggleTheme()" id="themeSwitch">
+          <li class="nav-brand mx-auto">
+            <a class="nav-link text-center" role="button" aria-pressed="true" onClick="toggleTheme()" id="themeSwitch">
               Dark Mode
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Resume</a>
+            <a class="nav-link text-center" href="#">Resume</a>
           </li>
 
           <li class="nav-brand">
-            <a class="nav-link" href="{{url_for('index')}}"><i class="fas fa-home nav-text"></i></a>
+            <a class="nav-link text-center" href="{{url_for('index')}}"><i class="fas fa-home nav-text"></i></a>
           </li>
 
 
           <li class="nav-item">
-            <a class="nav-link" href="{{url_for('projects')}}">Projects</a>
+            <a class="nav-link text-center" href="{{url_for('projects', page=1)}}">Projects</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="#" aria-current="page">Contact</a>
+            <a class="nav-link text-center active" href="#" aria-current="page">Contact</a>
           </li>
         </ul>
       </div>
@@ -90,23 +90,24 @@
         <div class="form-group">
           <!-- Get user name -->
           <label for="name">Name *</label>
-          <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Enter your name (required)" value="{{request.form['name']}}"
-            maxlength="100" required aria-required>
+          <input type="text" class="form-control mb-2" id="name" name="name" placeholder="Enter your name (required)"
+            value="{{request.form['name']}}" maxlength="100" required aria-required>
 
           <!-- Email address -->
           <label for="email">Email address *</label>
           <input type="email" class="form-control mb-2" id="email" name="email"
-            placeholder="Enter your email (required)" maxlength="100" value="{{request.form['email']}}" required aria-required>
+            placeholder="Enter your email (required)" maxlength="100" value="{{request.form['email']}}" required
+            aria-required>
 
           <!-- Callback number-->
           <label for="phone">Phone Number</label>
-          <input type="text" class="form-control mb-2" id="phone" name="phone" placeholder="Enter your phone number" value="{{request.form['phone']}}"
-            maxlength="56" pattern=".?(\W{0,3}\d{1,5}\W?){3,6}.?">
+          <input type="text" class="form-control mb-2" id="phone" name="phone" placeholder="Enter your phone number"
+            value="{{request.form['phone']}}" maxlength="56" pattern=".?(\W{0,3}\d{1,5}\W?){3,6}.?">
 
           <!-- Note -->
           <label for="note">Note *</label>
-          <textarea class="form-control mb-2" id="note" name="note" rows="3" placeholder="Enter your note (required)" value="{{request.form['note']}}"
-            maxlength="2500" required aria-required></textarea>
+          <textarea class="form-control mb-2" id="note" name="note" rows="3" placeholder="Enter your note (required)"
+            value="{{request.form['note']}}" maxlength="2500" required aria-required></textarea>
 
           <!-- Error message display -->
           <div class="alert alert-danger d-none" id="errorAlert" role="alert">
@@ -117,7 +118,7 @@
                     After submission, the button will be disabled and have a tooltip requesting 1 submission per session. 
                     Wrapping in a div so that the tip still shows then the button disables-->
           <span class="d-inline-block mt-3" tabindex="0" data-bs-toggle="tooltip" data-bs-placement="right"
-            data-bs-title="You will only be able to submit once every few minutes." id="submitTooltip">
+            data-bs-title="You will only be able to submit once every minute." id="submitTooltip">
             <button type="submit" id="submit" name="submit" class="btn btn-primary" {{isDisabled}}>{{btnText}}</button>
           </span>
 
@@ -175,16 +176,15 @@
     // Create a page object
     window.page = new Page();
 
-    window.postForm = function (event) {
-      window.page.postForm(event);
-    }
-
     window.toggleTheme = function () {
       window.page.toggleTheme();
     }
 
     window.onload = function () {
       window.page.onLoad();
+
+      this.tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
+      this.tooltipList = [...this.tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
     }
 
     window.onresize = function () {
@@ -194,9 +194,6 @@
     window.onbeforeunload = function () {
       window.page.onBeforeUnload();
     }
-
-    this.tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]');
-        this.tooltipList = [...this.tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl));
 
   </script>
 

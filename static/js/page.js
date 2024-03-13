@@ -32,21 +32,21 @@ class Page {
             nav.className = c.navBottomClasses;
             themeSwitch.innerHTML = c.adjustIcon;
             if (this.theme === c.dark) {
-                themeSwitch.className = "nav-link active";
+                themeSwitch.className = "nav-link active text-center";
             }
             else {
-                themeSwitch.className = "nav-link";
+                themeSwitch.className = "nav-link text-center";
             }
         }
         else {
             nav.className = c.navTopClasses;
             if (this.theme === c.dark) {
                 themeSwitch.innerHTML = "Light Mode";
-                themeSwitch.className = "nav-link active";
+                themeSwitch.className = "nav-link active text-center";
             }
             else {
                 themeSwitch.innerHTML = "Dark Mode";
-                themeSwitch.className = "nav-link";
+                themeSwitch.className = "nav-link text-center";
             }
         }
 

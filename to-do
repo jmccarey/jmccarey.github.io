@@ -22,26 +22,24 @@ X Fix form lockout system
 X Add functional cookies for preferences
 X Added flask to use templating for projects
 X Converted form handling to flask for improved security
+X Add pagination for projects
+X Error Page
+X Pagination go-to
 
 
 
 Next:
 
-Add pagination for projects
 Fill out home and contact pages
-
+Add old projects
+Update project text
+Get feedback
 
 
 Soon:
-
-Add old projects
 Special feature
-404 page
-Get feedback
-
 
 
 Less Soon:
 Add more projects
-Update project text
 
