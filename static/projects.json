@@ -1,63 +1,341 @@
 [
 	[
 		{
-			"name": "Project 1",
-			"description": "This is a description of project 1",
-			"image": "../../static/media/badge.gif",
-			"page": 1,
+			"name": "This website",
+			"description": "It's the website you're on right now! I wrote about what it's for on the home page, and, if you really want all the technical details, the source is on Github.  McCarey.net is designed with Bootstrap, and uses pure JavaScript for dynamic styling. All of these projects are loaded into a template from a JSON file using Flask. Flask is also used for the contact form, which simply triggers a webhook. I initially completed every part of the site with just JS, but when I got to this page I decided to add Flask for easier project management.",
+			"image": "../../static/media/thiswebsite.PNG",
+			"link": "https://github.com/jmccarey/jmccarey.github.io",
+			"linkVisibility": "visible",
 			"visibility": "visible"
 		},
 		{
-			"name": "Project 2",
-			"description": "This is a description of project 2",
-			"image": "http://placehold.it/600x400",
-			"page": 1,
+			"name": "John Harvard GPT Chat Bot",
+			"description": "OpenAI's GPT-2 was fresh on the scene as I entered college. I was naturally curious about its capabilities, having never used a transformer before, so I spent a while reading all of the literature I could find on the matter. Then, I scraped data from some large college group chats I was in and used it to fine tune the public GPT-2 model. The result was John wreaking havoc on the very group chats he spawned from-- an outstanding success.",
+			"image": "../../static/media/john.PNG",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
 		},
 		{
-			"name": "Project 3",
-			"description": "This is a description of project 3",
-			"image": "http://placehold.it/600x400",
-			"page": 1,
+			"name": "Learning, Innovation, and Technology Lab",
+			"description": "When I learned about Harvard's Learning, Innovation, and Technology Lab ('LIT Lab'), I knew I had finally found an area of research that was for me. The LIT Lab works in the intersection of education and technology to advance the field of Multi-modal Learning Analytics-- leveraging the newest advancements in tech to break open the field of education research. In my semester working with the LIT Lab, I worked on a toolkit for extracting multi-modal data with computer vision, and conducted research on the learning success metrics we could produce using the data.",
+			"image": "../../static/media/LIT.png",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
 		},
 		{
-			"name": "Project 4",
-			"description": "This is a description of project 3",
-			"image": "http://placehold.it/600x400",
-			"page": 1,
+			"name": "Verifit Nutrition Tracker",
+			"description": "A web based nutrition tracker that scraped Harvard Undergrad Dining Service's (HUDS) online menu for available dishes and their nutritional facts. The site featured user profiles with customizable goals and a log of past entries, and allowed users to easily add custom or menu items to their daily log. A week or two after I launched Verifit, HUDS released a public menu API that would have saved me half of my effort-- but, on the bright side, this was also the project that made me realize I enjoy working with Flask.",
+			"image": "../../static/media/verifit.PNG",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
 		}
 	],
 	[
 		{
-			"name": "Project 1",
-			"description": "This is a description of project 1",
-			"image": "http://placehold.it/600x400",
-			"page": 2,
-			"visibility": "visible"
-
-		},
-		{
-			"name": "Project 2",
-			"description": "This is a description of project 2",
-			"image": "http://placehold.it/600x400",
-			"page": 2,
+			"name": "NBA Object Detection",
+			"description": "As a fan of the NBA, I was excited to receive a challenge to use the YOLO object detector to analyze game footage. The objective was to identify which players were on which team, and what team was in possession of the ball based on player positioning. This was mostly a fun experiment on how to get fast and accurate results from object detection, but it was also interesting to see how a metric like total possession time correlated with team success.",
+			"image": "../../static/media/nba.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
 		},
 		{
-			"name": "Project 3",
-			"description": "This is a description of project 3",
-			"image": "http://placehold.it/600x400",
-			"page": 2,
+			"name": "Breakout",
+			"description": "A C++ version of the classic Breakout arcade game with multithreaded controls. Implemented efficient synchronization for multiple balls and paddles to ensure thread safety.",
+			"image": "../../static/media/breakout.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
-
 		},
 		{
-			"name": "Project 4",
-			"description": "This is a description of project 4",
-			"image": "http://placehold.it/600x400",
-			"page": 2,
+			"name": "Voice Controlled Tetris",
+			"description": "Voice Controlled Tetris is a group project I worked on during a CodeDay hackathon. It was a Python program that captured audio from the device microphone and allowed users to play Tetris using voice commands.",
+			"image": "../../static/media/tetris.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Soduku Solver",
+			"description": "A simple sudoku player and solver written in Python with options for solving with both depth first search and breadth first search.",
+			"image": "../../static/media/sudoku.png",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Gym Reinforcement Learning",
+			"description": "For this project, I was tasked with implementing and comparing various planning and reinforcement learning algorithms for OpenAI's Frozen Lake Environment. I implemented algorithms for value iteration and Q-learning, both with deterministic agent control and with a degree of uncertainty. My findings were that, in a deterministic environment, value iteration was quicker to converge close to an optimal policy, but Q-Learning converged closer to optimal after enough training. In the environment where uncertainty was added to the controls of the agent, Q-learning produced a superior policy by utilizing an action-value function that relied on past action results to optimize long-term return-- as opposed to only considering a provided transition probability.",
+			"image": "../../static/media/frozenlake.jpg",
+			"link": "https://gymnasium.farama.org/environments/toy_text/frozen_lake/",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "Flower Classification",
+			"description": "A set of models for classifying flowers into similar species.  The simpler approach was using a logistic regression model for classifying by dimension. Using only 100 points of training data, this simple classification method achieved 94% accuracy when classifying between two species with a relatively distinct size difference. Another approach I implemented was a perceptron algorithm for binary classification based on many features but a smaller dataset. This part was particularly interesting because, using similar functions for different flowers, a neural network for broader flower classification could be built.",
+			"image": "../../static/media/perceptron.png",
+			"link": "https://scikit-learn.org/stable/auto_examples/datasets/plot_iris_dataset.html",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "Handwriting Recognition",
+			"description": "A neural network model for recognizing hand written digits trained using TensorFlow and the MNIST dataset. In just half a minute training on mid range hardware,  the model achieved nearly 96% accuracy in predicting the correct digit. This was actually much easier than my previous classification project, simply because TensorFlow essentially removes all need to write complex algorithms or optimize.",
+			"image": "../../static/media/mnist.PNG",
+			"link": "https://www.tensorflow.org/datasets/catalog/mnist",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "Movie Review Sentiment Classification",
+			"description": "A Naive Bayes classifier for overall sentiment expressed in movie reviews. Training this model required a dataset of movie reviews divided by expressed sentiment-- in this case I used negative, neutral, and positive because these were quickly classifiable for a human based on accompanying rating. The training process created a dictionary of every word found in the training reviews and how much they occur in each category, and used it to find the probability of words occurring in posts of the different classes. When classifying a review, the presence of these words in the post is used as evidence for updating the probability that the review falls into the different classes.",
+			"image": "../../static/media/review.PNG",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Debugging Memory Allocator",
+			"description": "A debugging memory allocator, featuring memory usage tracking, error detection (e.g., use after free, double free), boundary checking, and heavy hitter reporting. This project helped bolster my proficiency in memory management, error handling, and debugging techniques.",
+			"image": "",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Binary Bomb Assembly Analysis",
+			"description": "In this project, the task was to defuse a bomb by interpreting assembly language code. The assignment involved using debugging tools to step through the disassembled binary, setting breakpoints, and inspecting registers and memory states. The goal was to learn precision assembly analysis and debugging techniques.",
+			"image": "",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Minimal Kernel",
+			"description": "Implemented a kernel for a miniature operating system, featuring vital system calls, process isolation, and virtual memory. Writing a kernel was an interesting way to practice concepts of virtual memory and basic OS design.",
+			"image": "",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Accelerated I/O library",
+			"description": "A library for accelerated I/O operations. The primary objective was to improve the library's efficiency over a featureless I/O implementation-- particularly for sequential reads and writes, as well as non-sequential access patterns like reverse access and strided access. This efficiency boost was accomplished using caching and rigorous testing to ensure the implementation made significant improvements for common access patterns.",
+			"image": "",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Pizza Delivery Mount",
+			"description": "During my time interning at Beyond Design Inc, we were contracted to design a mount that could be used to deliver multiple pizzas on an electric scooter. I was responsible for ideating scores of designs and advancing the best ones through multiple rounds of prototyping, as well as photographing prototypes and designing the pitch deck.",
+			"image": "../../static/media/scooter.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Cleanroom Trolley Disinfector",
+			"description": "One of the world's largest cleaning product companies approached Beyond Design to make a product for cleaning caster wheels on mop carts that are used inside of cleanrooms. The standard practice is to autoclave the wheels, but they were hoping we could think of something they hadn't to meet a similar standard. I created and tested several tools and installations to aid in the multi-step cleaning process that would be required. The project continued after my intership ended, but I believe that, after many increasingly intensive solutions, the client ultimately decided even the most detailed cleaning process wouldn't meet their standard.",
+			"image": "../../static/media/cleaner.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Modular Bike Rack",
+			"description": "A system by Beyond Design for mounting a range of bike attachments. As the project was largely wrapped up when I started my internship, my main contributions were conceptualizing how to incorporate stakeholder feedback and designing packaging that was to be used if the rack ended up being sold in stores.",
+			"image": "../../static/media/cr8.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Pod Based Electronic Cigarette",
+			"description": "During the JUUL craze, prospective Beyond Design clients were interested in creating their own vaping products. I created a number of concept sketches and 3D models for client presentations. With a crackdown on JUUL looming around the corner, however, interest in producing vaping products dropped off.",
+			"image": "../../static/media/vape.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Pac-Bot",
+			"description": "Pac-Bot is a competition hosted by the Harvard Undergraduate Robotics Club ('HURC'), where autonomous PacMan shaped robots navigate a course and evade ghosts projected onto the arena. When I joined HURC as a freshman, I was invited to the Pac-Bot team and given the tasks of adding the flashing ghosts mode to the game and updating legacy protobufs to add the related telemetry. The next year I served as project manager-- though, due to classes being virtual that year, access to equipment was limited and progress stunted.",
+			"image": "../../static/media/pacbot.jpg",
+			"link": "https://harvardrobotics.squarespace.com/pacbots",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "FTC Robot 2016",
+			"description": "I joined my highschool robotics club as a sophomore and was assigned as lead programmer for our First Tech Challenge ('FTC') team. I had not been expecting that, but even more unexpected was the other responsibilities that fell in my lap. I ended up creating the final mechanism design for completing every game function-- including an arching scissor lift for picking items up outside the arena, and a vertical lift with a paddle style loading/unloading system for raising a yoga ball up several feet. After all of that I also had the chance to drive the robot, leading us to the regional final.",
+			"image": "../../static/media/ftc.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "FRC Robot 2017",
+			"description": "After finishing my first FTC season, I was invited to join our more advanced First Robotics Competition ('FRC') team for the upcoming season. Our mentors were impressed with my mechanical intuition on the FTC team, so-- rather than programming-- I was assigned to design our climbing subsystem. This mechanism had to lift the entire 100+lb robot several feet into the air by attaching to a rope. I solved this problem using a simple, high torque ratcheting winch and  I continued to improve the efficacy of throughout the season to nearly 100%.",
+			"image": "../../static/media/frc1.png",
+			"link": "https://www.youtube.com/watch?v=GEjC8OILXgM",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "FRC Robot 2018",
+			"description": "During my second year in robotics, I was assigned to be a coach for my old FTC team-- allowing me to focus more on FRC during its offseason. I used this extra time to design a robust drivetrain that could be easily transplanted to robots in future competition seasons. The drivetrain was a dual belt-drive tank system, consisting of a laser cut aluminum frame, modular gear boxes, and exterior wheels that could be quickly changed during pitstops and have their vertical offset changed to aid in clearing different obstacles. I also had the pleasure of driving this season, and we made it to the world championship.",
+			"image": "../../static/media/frc2.jpg",
+			"link": "https://chicago.suntimes.com/2018/4/8/18406133/lane-tech-robotics-team-will-compete-in-world-championship-this-month-in-detroit",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Command Shell",
+			"description": "Developed a command shell using system calls to support a wide range of functionalities, including simple commands like echo and cat, background commands, conditionals, redirections, pipes, interruption handling, directory navigation, and zombie reaping. The implementation involved parsing a command line string and executing system commands according to the instructions and arguments.",
+			"image": "../../static/media/shell.PNG",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Bot Farm",
+			"description": "A friend bet me I couldn't successfully automate ('bot') his beloved game, Old School RuneScape. After a few weeks, I had a good understanding of the game and botted some simple activities. In a few more weeks, I had a large pool of accounts that I rotated through and was running at least 20 accounts at a time. I started to test the limits by operating accounts for 14+ hours a day and then they were promptly detected by the anti-cheat. In the end all profits went back into the project-- so the real winner was the game developer, who got me to start playing.",
+			"image": "../../static/media/bots.png",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Runelite plugins",
+			"description": "Admittedly, I got a little bit hooked on RuneScape in the process of learning so much about it for the previously posted bot farm. I used a popular community developed client for the game that had a plugin/extension hub, and eventually had some ideas for helpful features. After getting one feature contribution approved, I was quickly added as a maintainer on another, and also started developing a couple of my own plugins. I've moved on from the game for now,  so these projects have sadly lost priority.",
+			"image": "../../static/media/runelite.jpg",
+			"link": "https://github.com/LucasPickering/runelite-herb-farm-calculator",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		},
+		{
+			"name": "Open Data Project on Urban Environment",
+			"description": "As an incoming college freshman, I participated in a program  where Harvard sponsored us to partner with a government or non profit organization for the summer to work on a project that serves the community. I was lucky enough to be connected with someone at the Array of Things project, which is an open data project gathering urban environment data in the city of Chicago. I had the opportunity to try out data preprocessing on a massive scale, and visualizations about air quality in Chicago neighborhoods.",
+			"image": "../../static/media/aot.png",
+			"link": "https://arrayofthings.github.io/",
+			"linkVisibility": "visible",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Umbrella Go",
+			"description": "Umbrella Go is a project my group and I submitted during my senior year when given the assignment to create a company. We were instructed to take any idea and assemble everything we needed for a pitch as quickly as possible. Our idea was rental umbrellas available at docking stations distributed around cities. I designed our umbrella and docking station concepts, and contributed insights to the pitch on the affect of the designs on our business model.",
+			"image": "../../static/media/DockingStation.png",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "20 Sided Die Roller PCB",
+			"description": "This printable circuit board uses readings of electric noise to generate random numbers between 1 & 20. The numbers are displayed using an easy to read 12 LED system. This was my first experience with designing a PCB and I found it to be very enjoyable. I am looking forward to designing more complex PCBs in the future now that I have completed my formal education.",
+			"image": "../../static/media/D20.PNG",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Rube Goldberg Machine",
+			"description": "My addition to a Rube Goldberg machine collectively assembled by my Physical Computing class. Each student designed step had to end by triggering a limit switch or button to send a signal for the next part to begin. My group opted for a reliable design where a marble dropped onto a track would knock dominos into a cup and trigger the next step. This ended up being a good decision, as more complicated sections faced sporadic issues leading to the full machine run taking many attempts to complete. ",
+			"image": "../../static/media/rubegoldberg.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Portable Laser Tripwire",
+			"description": "A battery powered ESP8266 microcontroller and laser combined to make a laser tripwire. The device automatically tries connecting to predefined and open wifi networks-- allowing for quick and easy setup with a phone hotspot or accessible local network.",
+			"image": "../../static/media/tripwire.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Plastic Casting Studio",
+			"description": "A small studio I set up for casting plastic parts. I've used it to create custom parts for various projects, as well as to create small batch products for sale or as gifts. The studio includes a vacuum chamber, handbuilt pressure pot and 3d printer, and a variety of casting resins and silicones.",
+			"image": "../../static/media/plastic.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "3d Printed Shelf Mount",
+			"description": "A shelf addon for my desk created using scrap wood and 3d printed, friction mounted brackets. It can safely hold up to 40 pounds!",
+			"image": "../../static/media/shelf.png",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Ferris Wheel Part Organizer",
+			"description": "As a person with too many small parts and an enjoyer of Altoids mints, I've taken to using the tins for storage. I designed this wheel as a unique way to organize my tins, and also as a gift for a mentor with a similar problem.",
+			"image": "../../static/media/wheel.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Custom Rings",
+			"description": "Numerous custom rings created through electroetching. The rings are coated in vinyl or nail polish which I carve designs into by hand. The areas carved away are exposed to the process and come out with an interesting etched look!",
+			"image": "../../static/media/ring.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		}
+	],
+	[
+		{
+			"name": "Animated LED Badge",
+			"description": "A scrolling LED badge powered by an ATTINY85 microcontroller. I made this as a way of practicing my precision soldering skills.",
+			"image": "../../static/media/badge.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Maker Badge",
+			"description": "A puzzle piece badge that I made to symbolize my proficiency in 3d printing, laser cutting, CNC milling, and hand crafting. I was really excited to finish this badge as a symbol of my craftsmanship progression-- but unfortunately the memento was stolen shortly after I completed the metal portion, so I have no pictures of the completed badge.",
+			"image": "../../static/media/puzzle-collage.gif",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "Woodburnt Tea Pot",
+			"description": "A tea pot I woodburnt as a gift. Woodburning is a skill I picked up in middle school, but hadn't practiced in years. I was happy to find that I could still get a decent result-- even though I also had to use a soldering iron instead of a proper woodburning tool.",
+			"image": "../../static/media/woodburn.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
+			"visibility": "visible"
+		},
+		{
+			"name": "IoTea Kettle",
+			"description": "A hacked tea kettle that enabled phone based control and options to start heating based on proximity or time. It also sent mobile notifications so I wouldn't forget I was making tea! This hack functioned by using a Photon microcontroller to toggle the power state based on webhooks triggered from IFTTT. I ended up disassembling the IoTea kettle to retrieve the valuable Photon, but hope to rebuild it with cheaper hardware in the near future.",
+			"image": "../../static/media/kettle.jpg",
+			"link": "",
+			"linkVisibility": "d-none",
 			"visibility": "visible"
 		}
 	]

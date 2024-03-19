@@ -59,5 +59,5 @@ const buildCookie = function (themeName) {
     return `theme=${themeName};${expires};path=/`;
 }
 
-export { light, dark, navTopClasses, navBottomClasses, adjustIcon, webhook, themeFromName, parseCookie, buildCookie };
+export {light, dark, navTopClasses, navBottomClasses, adjustIcon, themeFromName, parseCookie, buildCookie};
 

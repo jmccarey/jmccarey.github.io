@@ -34,7 +34,7 @@
 
 </head>
 
-<body>
+<body class="bg-light">
 
   <!-- Navigation -->
   <nav class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark mx-auto" id="navbar">
@@ -56,7 +56,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center" href="#">Resume</a>
+            <a class="nav-link text-center" href="../../static/media/Joseph_McCarey_Resume(public).pdf" target="_blank">Resume</a>
           </li>
 
           <li class="nav-brand">
@@ -99,53 +99,49 @@
     <div class="card-deck">
       <!-- Row 1 -->
       <div class="row">
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
-          style="visibility: {{projects[0]['visibility']}} ;">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2" {{projects[0]['visibility']}}>
           <img class="card-img-top" src="{{projects[0]['image']}}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{projects[0]["name"]}}</h4>
             <p class="card-text">{{projects[0]["description"]}}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{projects[0]['link']}}" class="btn btn-primary {{projects[0]['linkVisibility']}}">Learn More</a>
           </div>
         </div>
 
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
-          style="visibility: {{projects[1]['visibility']}};">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2" {{projects[1]['visibility']}}>
           <img class="card-img-top" src="{{projects[1]['image']}}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{projects[1]["name"]}}</h4>
             <p class="card-text">{{projects[1]["description"]}}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{projects[1]['link']}}" class="btn btn-primary {{projects[1]['linkVisibility']}}">Learn More</a>
           </div>
         </div>
       </div>
       <!-- Row 2 -->
       <div class="row">
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
-          style="visibility: {{projects[2]['visibility']}} ;">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2" {{projects[2]['visibility']}}>
           <img class="card-img-top" src="{{projects[2]['image']}}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{projects[2]["name"]}}</h4>
             <p class="card-text">{{projects[2]["description"]}}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{projects[2]['link']}}" class="btn btn-primary {{projects[2]['linkVisibility']}}">Learn More</a>
           </div>
         </div>
 
-        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2"
-          style="visibility: {{projects[3]['visibility']}} ;">
+        <div class="card col-lg-5 col-md-6 col-sm-10 bg-light mx-auto border-secondary py-3 text-dark my-2" {{projects[3]['visibility']}}>
           <img class="card-img-top" src="{{projects[3]['image']}}" alt="">
           <div class="card-body">
             <h4 class="card-title">{{projects[3]["name"]}}</h4>
             <p class="card-text">{{projects[3]["description"]}}</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Learn More</a>
+            <a href="{{projects[3]['link']}}" class="btn btn-primary {{projects[3]['linkVisibility']}}">Learn More</a>
           </div>
         </div>
       </div>
@@ -155,19 +151,6 @@
 
   </div>
   <!-- /card grid -->
-
-
-  <!-- Footer -->
-  <footer class="py-2 bg-dark fixed-bottom d-none d-lg-block">
-    <div class="container">
-      <p class="m-0 text-center text-white">Glued together by Joseph
-        <a href="https://github.com/jmccarey">
-          <i class="fab fa-github fa-1x" style="color:white"></i>
-        </a>
-      </p>
-    </div>
-  </footer>
-
 
   <!-- Custom JS for dynamic styling-->
   <script type="module">

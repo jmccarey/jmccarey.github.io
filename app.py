@@ -69,14 +69,16 @@ def projects(page=1, projects=[]):
 		str: The rendered template.
 	"""
 
-	if request.method == 'POST':
-		# Get the page entered by the user
-		page = request.form['goPage']
-
 	try:
 		page = int(page)
 	except ValueError:
 		return redirect(url_for("error", code=404,message="Page not found."))
+
+	if request.method == 'POST':
+		# Redirect to the requested page
+		page = int(request.form['goPage'])
+		return redirect(url_for("projects", page=page))
+
 
 	# If the user goes below the first page, redirect to the first page
 	if page <= 0:
@@ -98,6 +100,7 @@ def projects(page=1, projects=[]):
 
 	while len(pageProjects) < 4:
 		pageProjects.append({"visibility": "hidden"})
+
 
 	# Render the template with the list of projects
 	
