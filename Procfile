@@ -1,0 +1,1 @@
+web: gunicorn -c www/config.py --bind unix:/tmp/gunicorn.sock wsgi 
