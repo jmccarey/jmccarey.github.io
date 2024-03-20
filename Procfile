@@ -1,1 +1,1 @@
-web: bin/start-nginx gunicorn -c www/config.py --bind unix:/tmp/nginx.sock wsgi 
+web: bin/start-nginx gunicorn -c www/config.py wsgi 

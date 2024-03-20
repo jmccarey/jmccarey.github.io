@@ -5,7 +5,7 @@ workers = int(os.environ.get('GUNICORN_PROCESSES', '2'))
 
 threads = int(os.environ.get('GUNICORN_THREADS', '4'))
 
-bind = os.environ.get('GUNICORN_BIND', 'localhost:8000')
+bind = os.environ.get('GUNICORN_BIND', 'unix:/tmp/nginx.sock')
 
 forwarded_allow_ips = '*'
 
