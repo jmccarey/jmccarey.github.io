@@ -41,7 +41,7 @@ http {
   server {
     # use 'listen 80 deferred;' for Linux
     # use 'listen 80 accept_filter=httpready;' for FreeBSD
-    listen <%= ENV["PORT"] %> deferred;
+    listen <%= ENV["PORT"] %>;
     client_max_body_size 4G;
     proxy_intercept_errors on;
 
