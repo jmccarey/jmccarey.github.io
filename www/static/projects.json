@@ -3,7 +3,7 @@
 		{
 			"name": "This website",
 			"description": "It's the website you're on right now! I wrote about what it's for on the home page, and, if you really want all the technical details, the source is on Github.  McCarey.net is designed with Bootstrap, and uses pure JavaScript for dynamic styling. All of these projects are loaded into a template from a JSON file using Flask. Flask is also used for the contact form, which simply triggers a webhook. I initially completed every part of the site with just JS, but when I got to this page I decided to add Flask for easier project management.",
-			"image": "../../static/media/thiswebsite.PNG",
+			"image": "../../static/media/thiswebsite.png",
 			"link": "https://github.com/jmccarey/jmccarey.github.io",
 			"linkVisibility": "visible",
 			"visibility": "visible"
@@ -11,7 +11,7 @@
 		{
 			"name": "John Harvard GPT Chat Bot",
 			"description": "OpenAI's GPT-2 was fresh on the scene as I entered college. I was naturally curious about its capabilities, having never used a transformer before, so I spent a while reading all of the literature I could find on the matter. Then, I scraped data from some large college group chats I was in and used it to fine tune the public GPT-2 model. The result was John wreaking havoc on the very group chats he spawned from-- an outstanding success.",
-			"image": "../../static/media/john.PNG",
+			"image": "../../static/media/john.png",
 			"link": "",
 			"linkVisibility": "d-none",
 			"visibility": "visible"
@@ -27,7 +27,7 @@
 		{
 			"name": "Verifit Nutrition Tracker",
 			"description": "A web based nutrition tracker that scraped Harvard Undergrad Dining Service's (HUDS) online menu for available dishes and their nutritional facts. The site featured user profiles with customizable goals and a log of past entries, and allowed users to easily add custom or menu items to their daily log. A week or two after I launched Verifit, HUDS released a public menu API that would have saved me half of my effort-- but, on the bright side, this was also the project that made me realize I enjoy working with Flask.",
-			"image": "../../static/media/verifit.PNG",
+			"image": "../../static/media/verifit.png",
 			"link": "",
 			"linkVisibility": "d-none",
 			"visibility": "visible"
@@ -87,7 +87,7 @@
 		{
 			"name": "Handwriting Recognition",
 			"description": "A neural network model for recognizing hand written digits trained using TensorFlow and the MNIST dataset. In just half a minute training on mid range hardware,  the model achieved nearly 96% accuracy in predicting the correct digit. This was actually much easier than my previous classification project, simply because TensorFlow essentially removes all need to write complex algorithms or optimize.",
-			"image": "../../static/media/mnist.PNG",
+			"image": "../../static/media/mnist.png",
 			"link": "https://www.tensorflow.org/datasets/catalog/mnist",
 			"linkVisibility": "visible",
 			"visibility": "visible"
@@ -95,7 +95,7 @@
 		{
 			"name": "Movie Review Sentiment Classification",
 			"description": "A Naive Bayes classifier for overall sentiment expressed in movie reviews. Training this model required a dataset of movie reviews divided by expressed sentiment-- in this case I used negative, neutral, and positive because these were quickly classifiable for a human based on accompanying rating. The training process created a dictionary of every word found in the training reviews and how much they occur in each category, and used it to find the probability of words occurring in posts of the different classes. When classifying a review, the presence of these words in the post is used as evidence for updating the probability that the review falls into the different classes.",
-			"image": "../../static/media/review.PNG",
+			"image": "../../static/media/review.png",
 			"link": "",
 			"linkVisibility": "d-none",
 			"visibility": "visible"
@@ -207,7 +207,7 @@
 		{
 			"name": "Command Shell",
 			"description": "Developed a command shell using system calls to support a wide range of functionalities, including simple commands like echo and cat, background commands, conditionals, redirections, pipes, interruption handling, directory navigation, and zombie reaping. The implementation involved parsing a command line string and executing system commands according to the instructions and arguments.",
-			"image": "../../static/media/shell.PNG",
+			"image": "../../static/media/shell.png",
 			"link": "",
 			"linkVisibility": "d-none",
 			"visibility": "visible"
@@ -249,7 +249,7 @@
 		{
 			"name": "20 Sided Die Roller PCB",
 			"description": "This printable circuit board uses readings of electric noise to generate random numbers between 1 & 20. The numbers are displayed using an easy to read 12 LED system. This was my first experience with designing a PCB and I found it to be very enjoyable. I am looking forward to designing more complex PCBs in the future now that I have completed my formal education.",
-			"image": "../../static/media/D20.PNG",
+			"image": "../../static/media/D20.png",
 			"link": "",
 			"linkVisibility": "d-none",
 			"visibility": "visible"
