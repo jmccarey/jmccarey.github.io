@@ -17,7 +17,6 @@ http {
   include mime.types;
   # fallback in case we can't determine a type
   default_type application/octet-stream;
-  access_log /var/log/nginx/access.log combined;
   sendfile on;
   gzip on;
 	gzip_comp_level 2;
