@@ -10,7 +10,7 @@ pid /var/run/nginx.pid;
 events {
   use epoll;
   worker_connections 1024; # increase if you have lots of clients
-  accept_mutex off; # set to 'on' if nginx worker_processes > 1
+  accept_mutex on; # set to 'on' if nginx worker_processes > 1
   # 'use epoll;' to enable for Linux 2.6+
   # 'use kqueue;' to enable for FreeBSD, OSX
 }
@@ -47,7 +47,7 @@ http {
     proxy_intercept_errors on;
 
     # set the correct host(s) for your site
-    server_name localhost 0.0.0.0 mccarey.net www.mccarey.net;
+    server_name _;
 
     keepalive_timeout 5;
 

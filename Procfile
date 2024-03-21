@@ -1,1 +1,1 @@
-web: bin/start-nginx gunicorn -c www/config.py wsgi 
+web: bin/start-nginx gunicorn -c www/config.py wsgi:application
