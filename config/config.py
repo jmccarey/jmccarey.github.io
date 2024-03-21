@@ -17,7 +17,7 @@ preload_app = True
  
 pre_fork = lambda server, worker: Path("tmp/app-initialized").touch()
 
-wsgi_app = application
+wsgi_app = "www.app:app"
 
 
 
