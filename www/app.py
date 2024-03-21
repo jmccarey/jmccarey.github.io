@@ -162,7 +162,7 @@ def triggerWebhook(body):
 	"""
 
 	# Send a POST request to the external webhook
-	response = post(url=webhook,
+	response = post(url=const.webhook,
 		headers={"Content-Type": "application/json"},
 		data=body
 	)
