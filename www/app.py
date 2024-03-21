@@ -5,11 +5,10 @@ from requests import post
 from datetime import datetime
 from time import time
 from json import dumps
-from www.constants import secretKey, webhook, projects
-
+import www.constants as const
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = secretKey
+app.config['SECRET_KEY'] = const.secretKey
 
 @app.route('/')
 def index():
@@ -89,12 +88,12 @@ def projects(page=1, pageProjects=[]):
 
 	# If the user goes over the last page, redirect to the last page
 	if page > len(projects):
-		return redirect(url_for("projects", page=len(projects)))
+		return redirect(url_for("projects", page=len(const.projects)))
 	
 	# Projects is a list of list of dicts
 	# Get the list for the current page
 
-	pageProjects = projects[page - 1][:]
+	pageProjects = const.projects[page - 1][:]
 
 	while len(pageProjects) < 4:
 		pageProjects.append({"visibility": "hidden"})
@@ -102,7 +101,7 @@ def projects(page=1, pageProjects=[]):
 
 	# Render the template with the list of projects
 	
-	return render_template('projects/index.html', page=page, projects=pageProjects)
+	return render_template('projects/index.html', page=page, pageProjects=pageProjects)
 
 
 @app.route('/error')
