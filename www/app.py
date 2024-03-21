@@ -1,15 +1,14 @@
 import mimetypes
 from http.server import SimpleHTTPRequestHandler
 from flask import Flask, request, render_template, url_for, redirect, session
-from requests import post, get
+from requests import post
 from datetime import datetime
 from time import time
-from json import dumps, loads
-import www.config as config
+from json import dumps
+import www.constants as const
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = config.secretKey
-
+app.config['SECRET_KEY'] = const.secretKey
 
 @app.route('/')
 def index():
@@ -31,6 +30,10 @@ def contact(confirmation="", isDisabled="", btnText="Send Message"):
 	"""
 
 	if request.method == 'POST':
+		if "lastSubmission" in session:
+			if time() - session["lastSubmission"] < 60:
+				return redirect(url_for("contact", confirmation="Please wait 60 seconds between submissions.", isDisabled="disabled", btnText="Message Sent"))
+
 		# Get the form data
 		form_data = request.form
 
@@ -88,13 +91,13 @@ def projects(page=1, pageProjects=[]):
 	# 	projects = loads(data)
 
 	# If the user goes over the last page, redirect to the last page
-	if page > len(config.projects):
-		return redirect(url_for("projects", page=len(config.projects)))
+	if page > len(const.projects):
+		return redirect(url_for("projects", page=len(const.projects)))
 	
 	# Projects is a list of list of dicts
 	# Get the list for the current page
 
-	pageProjects = config.projects[page - 1][:]
+	pageProjects = const.projects[page - 1][:]
 
 	while len(pageProjects) < 4:
 		pageProjects.append({"visibility": "hidden"})
@@ -102,7 +105,7 @@ def projects(page=1, pageProjects=[]):
 
 	# Render the template with the list of projects
 	
-	return render_template('projects/index.html', page=page, projects=pageProjects)
+	return render_template('projects/index.html', page=page, pageProjects=pageProjects)
 
 
 @app.route('/error')
@@ -163,7 +166,7 @@ def triggerWebhook(body):
 	"""
 
 	# Send a POST request to the external webhook
-	response = post(url=config.webhook,
+	response = post(url=const.webhook,
 		headers={"Content-Type": "application/json"},
 		data=body
 	)
