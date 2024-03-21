@@ -5,7 +5,7 @@ from requests import post
 from datetime import datetime
 from time import time
 from json import dumps
-from constants import secretKey, webhook, projects
+from www.constants import secretKey, webhook, projects
 
 
 app = Flask(__name__)
