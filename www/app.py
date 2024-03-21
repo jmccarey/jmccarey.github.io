@@ -6,10 +6,13 @@ from datetime import datetime
 from time import time
 from json import dumps, loads
 import www.config as config
+from pathlib import Path
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = config.secretKey
 
+# touch /tmp/app-initialized
+Path('/tmp/app-initialized').touch()
 
 @app.route('/')
 def index():
