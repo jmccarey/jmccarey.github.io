@@ -15,7 +15,7 @@ secure_scheme_headers = { 'X-Forwarded-Proto': 'https' }
 
 preload_app = True
  
-pre_fork = lambda server, worker: Path("tmp/app-initialized").touch()
+pre_fork = lambda server, worker: Path("/tmp/app-initialized").touch()
 
 wsgi_app = "www.app:app"
 
