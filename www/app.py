@@ -5,14 +5,17 @@ from requests import post, get
 from datetime import datetime
 from time import time
 from json import dumps, loads
-import www.config as config
-from pathlib import Path
+import os
+
+with open("www/static/projects.json", "r") as file:
+	projects = loads(file.read())
+
+secretKey = os.environ.get("FLASK_SECRET")
+
+webhook = os.environ.get("CONTACT_WEBHOOK")
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = config.secretKey
-
-# touch /tmp/app-initialized
-Path('/tmp/app-initialized').touch()
+app.config['SECRET_KEY'] = secretKey
 
 @app.route('/')
 def index():
@@ -91,13 +94,13 @@ def projects(page=1, pageProjects=[]):
 	# 	projects = loads(data)
 
 	# If the user goes over the last page, redirect to the last page
-	if page > len(config.projects):
-		return redirect(url_for("projects", page=len(config.projects)))
+	if page > len(projects):
+		return redirect(url_for("projects", page=len(projects)))
 	
 	# Projects is a list of list of dicts
 	# Get the list for the current page
 
-	pageProjects = config.projects[page - 1][:]
+	pageProjects = projects[page - 1][:]
 
 	while len(pageProjects) < 4:
 		pageProjects.append({"visibility": "hidden"})
@@ -166,7 +169,7 @@ def triggerWebhook(body):
 	"""
 
 	# Send a POST request to the external webhook
-	response = post(url=config.webhook,
+	response = post(url=webhook,
 		headers={"Content-Type": "application/json"},
 		data=body
 	)
