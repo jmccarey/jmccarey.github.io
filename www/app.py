@@ -1,18 +1,12 @@
 import mimetypes
 from http.server import SimpleHTTPRequestHandler
 from flask import Flask, request, render_template, url_for, redirect, session
-from requests import post, get
+from requests import post
 from datetime import datetime
 from time import time
-from json import dumps, loads
-import os
+from json import dumps
+from constants import secretKey, webhook, projects
 
-with open("www/static/projects.json", "r") as file:
-	projects = loads(file.read())
-
-secretKey = os.environ.get("FLASK_SECRET")
-
-webhook = os.environ.get("CONTACT_WEBHOOK")
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secretKey
