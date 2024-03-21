@@ -87,7 +87,7 @@ def projects(page=1, pageProjects=[]):
 	# 	projects = loads(data)
 
 	# If the user goes over the last page, redirect to the last page
-	if page > len(projects):
+	if page > len(const.projects):
 		return redirect(url_for("projects", page=len(const.projects)))
 	
 	# Projects is a list of list of dicts
