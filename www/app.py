@@ -30,6 +30,10 @@ def contact(confirmation="", isDisabled="", btnText="Send Message"):
 	"""
 
 	if request.method == 'POST':
+		if "lastSubmission" in session:
+			if time() - session["lastSubmission"] < 60:
+				return redirect(url_for("contact", confirmation="Please wait 60 seconds between submissions.", isDisabled="disabled", btnText="Message Sent"))
+
 		# Get the form data
 		form_data = request.form
 
