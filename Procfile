@@ -1,1 +1,1 @@
-web: bin/start-nginx -f gunicorn -c www/config.py wsgi:application --preload
+web: bin/start-nginx -f gunicorn -c www/config.py
