@@ -1,5 +1,3 @@
-import os
-from www.app import app as application
 from pathlib import Path
 
 
